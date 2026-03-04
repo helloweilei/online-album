@@ -7,5 +7,23 @@
     "url": "/uploads/img_1772520824112_rvmyt1tt8.png",
     "size": 112619,
     "createdAt": "2026-03-03T06:53:44.112Z"
+  },
+  {
+    "id": "photo_1772610446732_mynnto3",
+    "albumId": "album_1772520809647_2lscpld",
+    "filename": "img_1772610446726_z3qwpytnq.jpeg",
+    "originalName": "营业执照.jpeg",
+    "url": "/uploads/img_1772610446726_z3qwpytnq.jpeg",
+    "size": 113128,
+    "createdAt": "2026-03-04T07:47:26.726Z"
+  },
+  {
+    "id": "photo_1772610553579_5cws3lv",
+    "albumId": "album_1772610536528_ibhprmt",
+    "filename": "img_1772610553567_739bc1036.jpg",
+    "originalName": "nextjs-logo.jpg",
+    "url": "/uploads/img_1772610553567_739bc1036.jpg",
+    "size": 38016,
+    "createdAt": "2026-03-04T07:49:13.567Z"
   }
 ]

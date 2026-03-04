@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllAlbums } from "@/lib/db";
 import { AlbumCard } from "@/components/AlbumCard";
+import { UserNav } from "@/components/UserNav";
 
 export default async function AlbumsPage() {
   const albums = await getAllAlbums();
@@ -15,12 +16,15 @@ export default async function AlbumsPage() {
           >
             在线相册
           </Link>
-          <Link
-            href="/"
-            className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-          >
-            返回首页
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/"
+              className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+            >
+              返回首页
+            </Link>
+            <UserNav />
+          </div>
         </div>
       </header>
 

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getAlbumWithPhotos } from "@/lib/db";
 import { PhotoUpload } from "@/components/PhotoUpload";
 import { PhotoGrid } from "@/components/PhotoGrid";
+import { UserNav } from "@/components/UserNav";
 
 export default async function AlbumDetailPage({
   params,
@@ -24,12 +25,15 @@ export default async function AlbumDetailPage({
           >
             在线相册
           </Link>
-          <Link
-            href="/albums"
-            className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-          >
-            全部相册
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/albums"
+              className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+            >
+              全部相册
+            </Link>
+            <UserNav />
+          </div>
         </div>
       </header>
 

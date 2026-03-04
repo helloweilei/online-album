@@ -16,7 +16,7 @@ export async function AlbumCard({ album }: { album: Album }) {
     <div className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-200 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
       <Link
         href={`/albums/${album.id}`}
-        className="block aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-zinc-800"
+        className="block aspect-4/3 overflow-hidden bg-slate-100 dark:bg-zinc-800"
       >
         {cover ? (
           <Image

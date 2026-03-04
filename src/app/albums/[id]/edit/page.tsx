@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getAlbumById } from "@/lib/db";
 import { EditAlbumForm } from "@/components/EditAlbumForm";
+import { UserNav } from "@/components/UserNav";
 import Link from "next/link";
 
 export default async function EditAlbumPage({
@@ -22,12 +23,15 @@ export default async function EditAlbumPage({
           >
             在线相册
           </Link>
-          <Link
-            href={`/albums/${id}`}
-            className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-          >
-            ← 返回相册
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link
+              href={`/albums/${id}`}
+              className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+            >
+              ← 返回相册
+            </Link>
+            <UserNav />
+          </div>
         </div>
       </header>
       <main className="mx-auto max-w-md px-4 py-8">

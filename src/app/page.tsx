@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAllAlbums } from "@/lib/db";
 import { AlbumCard } from "@/components/AlbumCard";
 import { CreateAlbumForm } from "@/components/CreateAlbumForm";
+import { UserNav } from "@/components/UserNav";
 
 export default async function HomePage() {
   const albums = await getAllAlbums();
@@ -29,6 +30,7 @@ export default async function HomePage() {
             >
               帮助
             </Link>
+            <UserNav />
           </nav>
         </div>
       </header>

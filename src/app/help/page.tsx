@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { UserNav } from "@/components/UserNav";
 
 export default function HelpPage() {
   return (
@@ -11,12 +12,15 @@ export default function HelpPage() {
           >
             在线相册
           </Link>
-          <Link
-            href="/"
-            className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-          >
-            返回首页
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/"
+              className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+            >
+              返回首页
+            </Link>
+            <UserNav />
+          </div>
         </div>
       </header>
       <main className="mx-auto max-w-2xl px-4 py-8">

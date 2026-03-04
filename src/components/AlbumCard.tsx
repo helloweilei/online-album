@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { Album } from "@/types/album";
 import { getPhotosByAlbumId } from "@/lib/db";
 import { AlbumActions } from "./AlbumActions";
+import { IconCamera } from "./icons";
 
 export async function AlbumCard({ album }: { album: Album }) {
   const photos = await getPhotosByAlbumId(album.id);
@@ -12,32 +13,35 @@ export async function AlbumCard({ album }: { album: Album }) {
   const count = photos.length;
 
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md dark:border-zinc-700 dark:bg-zinc-900">
-      <Link href={`/albums/${album.id}`} className="block aspect-[4/3] overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+    <div className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all duration-200 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
+      <Link
+        href={`/albums/${album.id}`}
+        className="block aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-zinc-800"
+      >
         {cover ? (
           <Image
             src={cover.url}
             alt={album.name}
             width={400}
             height={300}
-            className="h-full w-full object-cover transition group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             unoptimized
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-zinc-400 dark:text-zinc-500">
-            <span className="text-4xl">📷</span>
+          <div className="flex h-full w-full items-center justify-center text-slate-400 dark:text-zinc-500">
+            <IconCamera className="h-16 w-16" />
           </div>
         )}
       </Link>
-      <div className="flex items-center justify-between gap-2 p-3">
+      <div className="flex items-center justify-between gap-2 p-4">
         <div className="min-w-0 flex-1">
           <Link
             href={`/albums/${album.id}`}
-            className="block truncate font-medium text-zinc-900 hover:underline dark:text-zinc-100"
+            className="block truncate font-medium text-slate-900 transition-colors duration-200 hover:text-slate-700 dark:text-zinc-100 dark:hover:text-zinc-300"
           >
             {album.name}
           </Link>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-sm text-slate-500 dark:text-zinc-500">
             {count} 张照片
           </p>
         </div>

@@ -29,9 +29,9 @@ export function CreateAlbumForm({
     <form
       ref={formRef}
       action={handleSubmit}
-      className="flex flex-col gap-3 rounded-xl border border-zinc-200 bg-white p-4 shadow-sm dark:border-zinc-700 dark:bg-zinc-900"
+      className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
     >
-      <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+      <h3 className="text-lg font-semibold text-slate-900 dark:text-zinc-100">
         新建相册
       </h3>
       <input
@@ -39,13 +39,13 @@ export function CreateAlbumForm({
         name="name"
         required
         placeholder="相册名称"
-        className="rounded-lg border border-zinc-300 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+        className="rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 outline-none transition-colors duration-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/20 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:focus:border-zinc-400 dark:focus:ring-zinc-400/20"
       />
       <textarea
         name="description"
         rows={2}
         placeholder="描述（可选）"
-        className="rounded-lg border border-zinc-300 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100"
+        className="rounded-lg border border-slate-300 px-4 py-2.5 text-slate-900 outline-none transition-colors duration-200 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/20 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-100 dark:focus:border-zinc-400 dark:focus:ring-zinc-400/20"
       />
       {error && (
         <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
@@ -53,7 +53,7 @@ export function CreateAlbumForm({
       <button
         type="submit"
         disabled={loading}
-        className="rounded-lg bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700 disabled:opacity-50"
+        className="cursor-pointer rounded-lg bg-slate-900 px-4 py-2.5 font-medium text-white transition-colors duration-200 hover:bg-slate-800 disabled:opacity-50 dark:bg-zinc-100 dark:text-slate-900 dark:hover:bg-zinc-200"
       >
         {loading ? "创建中…" : "创建"}
       </button>

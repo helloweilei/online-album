@@ -17,7 +17,7 @@ export function PhotoGrid({
 
   if (!photos.length) {
     return (
-      <p className="py-12 text-center text-zinc-500 dark:text-zinc-400">
+      <p className="py-12 text-center text-slate-500 dark:text-zinc-500">
         暂无照片，点击「上传图片」添加
       </p>
     );
@@ -29,18 +29,18 @@ export function PhotoGrid({
         {photos.map((photo, index) => (
           <div
             key={photo.id}
-            className="group relative aspect-square overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800"
+            className="group relative aspect-square overflow-hidden rounded-lg bg-slate-100 dark:bg-zinc-800"
           >
             <button
               type="button"
-              className="absolute inset-0 block h-full w-full"
+              className="absolute inset-0 block h-full w-full cursor-pointer"
               onClick={() => setLightboxIndex(index)}
             >
               <Image
                 src={photo.url}
                 alt={photo.originalName}
                 fill
-                className="object-cover transition group-hover:scale-105"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
                 sizes="(max-width: 640px) 50vw, 20vw"
                 unoptimized
               />

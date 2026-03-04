@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { getAllAlbums } from "@/lib/db";
 import { AlbumCard } from "@/components/AlbumCard";
-import { CreateAlbumForm } from "@/components/CreateAlbumForm";
 
-export default async function HomePage() {
+export default async function AlbumsPage() {
   const albums = await getAllAlbums();
 
   return (
@@ -16,33 +15,32 @@ export default async function HomePage() {
           >
             在线相册
           </Link>
-          <nav className="flex items-center gap-6">
-            <Link
-              href="/albums"
-              className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-            >
-              全部相册
-            </Link>
-            <Link
-              href="/help"
-              className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-            >
-              帮助
-            </Link>
-          </nav>
+          <Link
+            href="/"
+            className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+          >
+            返回首页
+          </Link>
         </div>
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-8">
-        <div className="mb-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <CreateAlbumForm />
+        <h1 className="mb-6 text-2xl font-bold text-slate-900 dark:text-zinc-100">
+          全部相册
+        </h1>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {albums.map((album) => (
             <AlbumCard key={album.id} album={album} />
           ))}
         </div>
         {albums.length === 0 && (
-          <p className="text-center text-slate-500 dark:text-zinc-500">
-            还没有相册，在左侧卡片中创建一个吧
+          <p className="py-12 text-center text-slate-500 dark:text-zinc-500">
+            <Link
+              href="/"
+              className="cursor-pointer text-slate-900 underline transition-colors duration-200 hover:text-slate-700 dark:text-zinc-100 dark:hover:text-zinc-300"
+            >
+              去首页创建一个相册
+            </Link>
           </p>
         )}
       </main>

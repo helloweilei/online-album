@@ -26,10 +26,10 @@ export function AlbumActions({ album }: { album: Album }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="rounded p-1.5 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-700 dark:hover:bg-zinc-700 dark:hover:text-zinc-300"
+        className="cursor-pointer rounded p-1.5 text-slate-500 transition-colors duration-200 hover:bg-slate-100 hover:text-slate-700 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-200"
         aria-label="更多操作"
       >
-        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
           <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
         </svg>
       </button>
@@ -40,10 +40,10 @@ export function AlbumActions({ album }: { album: Album }) {
             aria-hidden
             onClick={() => setOpen(false)}
           />
-          <div className="absolute right-0 top-full z-20 mt-1 w-40 rounded-lg border border-zinc-200 bg-white py-1 shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
+          <div className="absolute right-0 bottom-full z-20 mt-1 w-40 rounded-lg border border-slate-200 bg-white py-1 shadow-lg dark:border-zinc-700 dark:bg-zinc-800">
             <a
               href={`/albums/${album.id}/edit`}
-              className="block px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
+              className="block cursor-pointer px-3 py-2 text-sm text-slate-700 transition-colors duration-200 hover:bg-slate-100 dark:text-zinc-300 dark:hover:bg-zinc-700"
             >
               编辑相册
             </a>
@@ -51,7 +51,7 @@ export function AlbumActions({ album }: { album: Album }) {
               type="button"
               onClick={handleDelete}
               disabled={loading}
-              className="w-full px-3 py-2 text-left text-sm text-red-600 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 disabled:opacity-50"
+              className="w-full cursor-pointer px-3 py-2 text-left text-sm text-red-600 transition-colors duration-200 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 disabled:opacity-50"
             >
               {loading ? "删除中…" : "删除相册"}
             </button>

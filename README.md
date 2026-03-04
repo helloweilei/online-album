@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 在线相册
 
-## Getting Started
+基于 Next.js 16（App Router）的相册管理项目，支持图片上传、预览与分组管理。
 
-First, run the development server:
+## 技术栈
+
+- **Next.js 16** - App Router、Server Components、Server Actions
+- **TypeScript** - 类型安全
+- **Tailwind CSS 4** - 样式
+- **本地 JSON 存储** - 相册与图片元数据（`data/`）；图片文件存放在 `public/uploads/`
+
+## 功能
+
+- **相册分组**：创建、编辑、删除相册
+- **图片上传**：支持 JPEG / PNG / GIF / WebP，单张最大 10MB，多选上传
+- **图片预览**：点击图片全屏预览，支持键盘左右键切换
+- **封面设置**：将任意照片设为相册封面
+- **删除图片**：单张删除，删除相册时一并删除其下所有图片
+
+## 快速开始
 
 ```bash
+# 安装依赖（已安装可跳过）
+npm install
+
+# 开发
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+浏览器访问 [http://localhost:3000](http://localhost:3000)。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 项目结构
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── actions/        # Server Actions（相册与图片的增删改）
+│   ├── albums/        # 相册列表、相册详情、编辑相册
+│   ├── layout.tsx
+│   └── page.tsx       # 首页（创建相册 + 相册卡片）
+├── components/        # 相册卡片、上传、图片网格、预览 Lightbox 等
+├── lib/
+│   └── db.ts          # 基于 JSON 文件的数据读写
+└── types/
+    └── album.ts       # Album、Photo 类型定义
+```
 
-## Learn More
+## 数据存储
 
-To learn more about Next.js, take a look at the following resources:
+- `data/albums.json` - 相册列表
+- `data/photos.json` - 图片元数据
+- `public/uploads/` - 上传的图片文件
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+生产环境建议替换为数据库（如 Prisma + SQLite/PostgreSQL）与对象存储（如 S3、OSS）。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 脚本
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| 命令       | 说明           |
+|------------|----------------|
+| `npm run dev`   | 开发模式（Turbopack） |
+| `npm run build` | 生产构建       |
+| `npm run start` | 启动生产服务   |
+| `npm run lint`  | 运行 ESLint   |

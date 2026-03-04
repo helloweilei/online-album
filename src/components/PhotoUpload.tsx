@@ -1,9 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { uploadPhotos } from "@/app/actions/photo";
+import { IconCloudUpload } from "./icons";
 
 export function PhotoUpload({ albumId }: { albumId: string }) {
+  const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +24,7 @@ export function PhotoUpload({ albumId }: { albumId: string }) {
     setLoading(false);
     e.target.value = "";
     if (result.success) {
-      window.location.reload(); // 简单刷新以更新列表；也可用 router.refresh()
+      router.refresh();
     } else {
       setError(result.error ?? "上传失败");
     }
@@ -42,9 +45,9 @@ export function PhotoUpload({ albumId }: { albumId: string }) {
         type="button"
         onClick={() => inputRef.current?.click()}
         disabled={loading}
-        className="inline-flex items-center gap-2 rounded-lg border border-dashed border-zinc-300 bg-zinc-50 px-4 py-3 text-zinc-700 transition hover:border-blue-400 hover:bg-blue-50 disabled:opacity-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:border-blue-500 dark:hover:bg-blue-900/20"
+        className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-slate-700 transition-colors duration-200 hover:border-slate-900 hover:bg-slate-100 disabled:opacity-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:border-zinc-400 dark:hover:bg-zinc-700"
       >
-        <span className="text-xl">📤</span>
+        <IconCloudUpload />
         {loading ? "上传中…" : "上传图片"}
       </button>
       {error && (

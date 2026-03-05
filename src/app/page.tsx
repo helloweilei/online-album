@@ -8,7 +8,7 @@ export default async function HomePage() {
   const albums = await getAllAlbums();
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] dark:bg-black">
+    <div className="bg-[#FAFAFA] dark:bg-black">
       <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/95 backdrop-blur dark:border-zinc-800 dark:bg-black/95">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
           <div className="flex items-center gap-6">
@@ -27,6 +27,12 @@ export default async function HomePage() {
               className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
             >
               全部相册
+            </Link>
+            <Link
+              href="/gallery"
+              className="cursor-pointer text-slate-600 transition-colors duration-200 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+            >
+              画廊
             </Link>
             <Link
               href="/help"

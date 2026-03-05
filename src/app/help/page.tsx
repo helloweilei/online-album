@@ -3,7 +3,7 @@ import { UserNav } from "@/components/UserNav";
 
 export default function HelpPage() {
   return (
-    <div className="min-h-screen bg-[#FAFAFA] dark:bg-black">
+    <div className="bg-[#FAFAFA] dark:bg-black">
       <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/95 backdrop-blur dark:border-zinc-800 dark:bg-black/95">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
           <Link
